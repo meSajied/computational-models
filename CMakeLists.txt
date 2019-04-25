@@ -3,4 +3,4 @@ project(Algorithms)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Algorithms LongestCommonSubsequence.cpp)
+add_executable(Algorithms EditDistance.cpp)

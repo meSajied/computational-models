@@ -10,10 +10,13 @@ inline int editDistance(string firstString, string secondString, int firstLength
 
     if(firstLength == 0)
         return secondLength;
+
     else if(secondLength == 0)
         return firstLength;
+
     else if(firstString[firstLength-1] == secondString[secondLength-1])
         return editDistance(firstString, secondString, firstLength-1, secondLength-1);
+
     else
         return 1 + min(editDistance(firstString, secondString, firstLength-1, secondLength),
                 editDistance(firstString, secondString, firstLength, secondLength-1),
@@ -49,9 +52,12 @@ int main(){
 
     string firstString, secondString;
     int firstLength, secondLength;
+
     cin >> firstString >> secondString;
+
     firstLength = firstString.length();
     secondLength = secondString.length();
+
     cout << editDistance(firstString, secondString, firstLength, secondLength) << endl;
     cout << dynamicEditDistance(firstString, secondString, firstLength, secondLength) << endl;
     return 0;
