@@ -2,6 +2,7 @@
 #define FromLeft 1
 #define FromUp 2
 #define Diagonal 3
+
 using namespace std;
 
 inline int commonSequence(char Columns[], char Rows[], int i, int j) {

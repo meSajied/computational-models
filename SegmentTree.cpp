@@ -1,8 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 #define maximum 10001
 int arr[maximum];
 int tree[maximum*4];
+
 void segment(int node, int begin, int end){
 
      if(begin == end){
