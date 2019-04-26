@@ -18,6 +18,7 @@ inline int commonSequence(char Columns[], char Rows[], int i, int j) {
 inline int dynamicSequence(char Columns[], char Rows[], int ColumnLength, int RowLength) {
 
     int Values[1000][1000], i, j, Dimention[1000][1000];
+
     for (i = 1; i <= ColumnLength; i++) {
         Values[i][0] = 0;
     }
