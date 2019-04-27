@@ -22,11 +22,8 @@ def countDynamic(solution, coins, target):
 
     for i in range(1, target+1):
         for j in range(coins):
-
             x = table[i - solution[j]][j] if i-solution[j] >= 0 else 0
-
             y = table[i][j-1] if j >= 1 else 0
-
             table[i][j] = x + y
 
     return table[target][coins-1]
