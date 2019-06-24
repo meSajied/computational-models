@@ -5,45 +5,45 @@
 
 using namespace std;
 
-inline int commonSequence(char Columns[], char Rows[], int i, int j) {
+inline int commonSequence(char columns[], char Rows[], int i, int j) {
 
     if(i == 0 || j == 0)
         return 0;
-    if(Columns[i-1] == Rows[j-1])
-        return 1 + commonSequence(Columns, Rows, i-1, j-1);
+    if(columns[i-1] == Rows[j-1])
+        return 1 + commonSequence(columns, Rows, i-1, j-1);
     else
-        return max(commonSequence(Columns, Rows, i, j-1), commonSequence(Columns, Rows, i-1, j));
+        return max(commonSequence(columns, Rows, i, j-1), commonSequence(columns, Rows, i-1, j));
 }
 
-inline int dynamicSequence(char Columns[], char Rows[], int ColumnLength, int RowLength) {
+inline int dynamicSequence(char columns[], char Rows[], int columnLength, int rowLength) {
 
-    int Values[1000][1000], i, j, Dimention[1000][1000];
+    int values[1000][1000], i, j, dimention[1000][1000];
 
-    for (i = 1; i <= ColumnLength; i++) {
-        Values[i][0] = 0;
+    for (i = 1; i <= columnLength; i++) {
+        values[i][0] = 0;
     }
-    for (j = 1; j <= RowLength; j++) {
-        Values[0][j] = 0;
+    for (j = 1; j <= rowLength; j++) {
+        values[0][j] = 0;
     }
-    for (i = 1; i <= ColumnLength; i++) {
-        for (j = 1; j <= RowLength; j++) {
+    for (i = 1; i <= columnLength; i++) {
+        for (j = 1; j <= rowLength; j++) {
             if(i == 0 || j == 0)
                 return 0;
-            else if(Columns[i] == Rows[j]) {
-                Values[i][j] = Values[i-1][j-1]+1;
-                Dimention[i][j] = Diagonal;
+            else if(columns[i] == Rows[j]) {
+                values[i][j] = values[i-1][j-1]+1;
+                dimention[i][j] = Diagonal;
             }
-            else if(Values[i-1][j] > Values[i][j-1]) {
-                Values[i][j] = Values[i-1][j];
-                Dimention[i][j] = FromUp;
+            else if(values[i-1][j] > values[i][j-1]) {
+                values[i][j] = values[i-1][j];
+                dimention[i][j] = FromUp;
             }
             else{
-                Values[i][j] = Values[i][j-1];
-                Dimention[i][j] = FromLeft;
+                values[i][j] = values[i][j-1];
+                dimention[i][j] = FromLeft;
             }
         }
     }
-    return Values[strlen(Columns)][strlen(Rows)];
+    return values[strlen(columns)][strlen(Rows)];
 }
 
 inline int PrintSequence() {
@@ -51,8 +51,8 @@ inline int PrintSequence() {
 }
 
 int main() {
-    char X[] = "alsdfkjfjkdsal";
-    char Y[] = "fdjskalajfkdsla";
+    char X[] = "AGGTAB";
+    char Y[] = "GXTXAYB";
 
     int m = strlen(X);
     int n = strlen(Y);
