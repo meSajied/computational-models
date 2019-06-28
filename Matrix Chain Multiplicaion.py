@@ -40,6 +40,7 @@ def matrixMultiply(matrix):
                 count = minCost[i][k] + minCost[k+1][j] + matrix[i-1]*matrix[k]*matrix[j]
                 if count < minCost[i][j]:
                     minCost[i][j] = count
+                    print(minCost[i][j])
 
     return minCost[i][j]
 

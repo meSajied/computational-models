@@ -1,9 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-typedef struct{
-     int Weight, Price;
-}Object;
 
 int knapSack(int capacity, int weight[], int price[], int n){
 
@@ -34,6 +31,7 @@ int main(){
 	int weight[] = {10, 20, 30};
 	int  capacity = 50;
 	int n = sizeof(price)/sizeof(price[0]);
+	//cout << n;
 	printf("%d", knapSack(capacity, weight, price, n));
 	return 0;
 }
