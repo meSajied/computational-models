@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sajied-pc/Projects/Algorithms/0-1Knapsack.cpp
+bits/stdc++.h
+-
+
+/home/sajied-pc/Projects/Algorithms/google/BracketCombination.cpp
+bits/stdc++.h
+-
+
