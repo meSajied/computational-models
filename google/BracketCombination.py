@@ -1,6 +1,6 @@
 arr = []
 
-def bracket(arr, left, right, string):
+def bracket(left, right, string):
 
 	#arr = []
 

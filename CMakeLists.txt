@@ -3,4 +3,4 @@ project(Algorithms)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Algorithms 0-1Knapsack.cpp)
+add_executable(Algorithms Basics/LongestCommonSubsequence.cpp)
