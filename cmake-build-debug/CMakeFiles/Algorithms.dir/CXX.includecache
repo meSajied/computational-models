@@ -6,11 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/sajied-pc/Projects/Algorithms/0-1Knapsack.cpp
-bits/stdc++.h
+/home/sajied-pc/Projects/Algorithms/Graphics/bresenham1.cpp
+stdio.h
 -
-
-/home/sajied-pc/Projects/Algorithms/google/BracketCombination.cpp
-bits/stdc++.h
+iostream
+-
+GL/glut.h
+-
+math.h
 -
 

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/sajied-pc/Projects/Algorithms/Basics/LongestCommonSubsequence.cpp" "/home/sajied-pc/Projects/Algorithms/cmake-build-debug/CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.o"
+  "/home/sajied-pc/Projects/Algorithms/Graphics/bresenham.cpp" "/home/sajied-pc/Projects/Algorithms/cmake-build-debug/CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

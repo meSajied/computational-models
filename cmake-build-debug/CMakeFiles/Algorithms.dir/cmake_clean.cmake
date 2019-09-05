@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.o"
+  "CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.o"
   "Algorithms.pdb"
   "Algorithms"
 )
