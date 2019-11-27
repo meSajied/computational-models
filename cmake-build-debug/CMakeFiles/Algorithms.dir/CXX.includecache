@@ -6,13 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/sajied-pc/Projects/Algorithms/Graphics/bresenham1.cpp
-stdio.h
--
-iostream
--
-GL/glut.h
--
-math.h
+/home/sajied-pc/Projects/Algorithms/Basics/LongestCommonSubsequence.cpp
+bits/stdc++.h
 -
 

@@ -84,7 +84,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/sajied-pc/Projects/Algorithms/Graphics/bresenham.cpp">
+		<Unit filename="/home/sajied-pc/Projects/Algorithms/Basics/LongestCommonSubsequence.cpp">
 			<Option target="Algorithms"/>
 		</Unit>
 		<Unit filename="/home/sajied-pc/Projects/Algorithms/CMakeLists.txt">

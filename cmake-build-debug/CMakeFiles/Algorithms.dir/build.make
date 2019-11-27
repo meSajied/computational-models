@@ -57,27 +57,27 @@ include CMakeFiles/Algorithms.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Algorithms.dir/flags.make
 
-CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.o: CMakeFiles/Algorithms.dir/flags.make
-CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.o: ../Graphics/bresenham.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sajied-pc/Projects/Algorithms/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.o -c /home/sajied-pc/Projects/Algorithms/Graphics/bresenham.cpp
+CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.o: CMakeFiles/Algorithms.dir/flags.make
+CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.o: ../Basics/LongestCommonSubsequence.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sajied-pc/Projects/Algorithms/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.o -c /home/sajied-pc/Projects/Algorithms/Basics/LongestCommonSubsequence.cpp
 
-CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sajied-pc/Projects/Algorithms/Graphics/bresenham.cpp > CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.i
+CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sajied-pc/Projects/Algorithms/Basics/LongestCommonSubsequence.cpp > CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.i
 
-CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sajied-pc/Projects/Algorithms/Graphics/bresenham.cpp -o CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.s
+CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sajied-pc/Projects/Algorithms/Basics/LongestCommonSubsequence.cpp -o CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.s
 
 # Object files for target Algorithms
 Algorithms_OBJECTS = \
-"CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.o"
+"CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.o"
 
 # External object files for target Algorithms
 Algorithms_EXTERNAL_OBJECTS =
 
-Algorithms: CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.o
+Algorithms: CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.o
 Algorithms: CMakeFiles/Algorithms.dir/build.make
 Algorithms: CMakeFiles/Algorithms.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sajied-pc/Projects/Algorithms/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Algorithms"

@@ -123,32 +123,32 @@ Algorithms/fast:
 	$(MAKE) -f CMakeFiles/Algorithms.dir/build.make CMakeFiles/Algorithms.dir/build
 .PHONY : Algorithms/fast
 
-Graphics/bresenham.o: Graphics/bresenham.cpp.o
+Basics/LongestCommonSubsequence.o: Basics/LongestCommonSubsequence.cpp.o
 
-.PHONY : Graphics/bresenham.o
+.PHONY : Basics/LongestCommonSubsequence.o
 
 # target to build an object file
-Graphics/bresenham.cpp.o:
-	$(MAKE) -f CMakeFiles/Algorithms.dir/build.make CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.o
-.PHONY : Graphics/bresenham.cpp.o
+Basics/LongestCommonSubsequence.cpp.o:
+	$(MAKE) -f CMakeFiles/Algorithms.dir/build.make CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.o
+.PHONY : Basics/LongestCommonSubsequence.cpp.o
 
-Graphics/bresenham.i: Graphics/bresenham.cpp.i
+Basics/LongestCommonSubsequence.i: Basics/LongestCommonSubsequence.cpp.i
 
-.PHONY : Graphics/bresenham.i
+.PHONY : Basics/LongestCommonSubsequence.i
 
 # target to preprocess a source file
-Graphics/bresenham.cpp.i:
-	$(MAKE) -f CMakeFiles/Algorithms.dir/build.make CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.i
-.PHONY : Graphics/bresenham.cpp.i
+Basics/LongestCommonSubsequence.cpp.i:
+	$(MAKE) -f CMakeFiles/Algorithms.dir/build.make CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.i
+.PHONY : Basics/LongestCommonSubsequence.cpp.i
 
-Graphics/bresenham.s: Graphics/bresenham.cpp.s
+Basics/LongestCommonSubsequence.s: Basics/LongestCommonSubsequence.cpp.s
 
-.PHONY : Graphics/bresenham.s
+.PHONY : Basics/LongestCommonSubsequence.s
 
 # target to generate assembly for a file
-Graphics/bresenham.cpp.s:
-	$(MAKE) -f CMakeFiles/Algorithms.dir/build.make CMakeFiles/Algorithms.dir/Graphics/bresenham.cpp.s
-.PHONY : Graphics/bresenham.cpp.s
+Basics/LongestCommonSubsequence.cpp.s:
+	$(MAKE) -f CMakeFiles/Algorithms.dir/build.make CMakeFiles/Algorithms.dir/Basics/LongestCommonSubsequence.cpp.s
+.PHONY : Basics/LongestCommonSubsequence.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Algorithms"
 	@echo "... edit_cache"
-	@echo "... Graphics/bresenham.o"
-	@echo "... Graphics/bresenham.i"
-	@echo "... Graphics/bresenham.s"
+	@echo "... Basics/LongestCommonSubsequence.o"
+	@echo "... Basics/LongestCommonSubsequence.i"
+	@echo "... Basics/LongestCommonSubsequence.s"
 .PHONY : help
 
 
