@@ -7,7 +7,6 @@ using namespace std;
 
 class LongestCommonSubsequence {
 public:
-
 	inline int recursive(char columns[], char Rows[], int i, int j) {
 
 		if (i == 0 || j == 0)
