@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class UnionFind {
 
     private int[] parent;
@@ -54,15 +56,15 @@ public class UnionFind {
     }
 
     public static void main(String[] args) {
-        int n = StdIn.readInt();
-        UF uf = new UnionFind(n);
+        int n = Scanner.
+        UnionFind uf = new UnionFind(n);
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
-            int q = StdIn.readInt();
+            int q = Scanner.readInt();
             if (uf.find(p) == uf.find(q)) continue;
             uf.union(p, q);
-            StdOut.println(p + " " + q);
+            System.out.println(p + " " + q);
         }
-        StdOut.println(uf.count() + " components");
+        System.out.println(uf.count() + " components");
     }
 }
