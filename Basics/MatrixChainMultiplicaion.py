@@ -32,9 +32,6 @@ def parenthesize(numMatrices):
     for k in range(2, numMatrices-1):
         parenthesize(k)*parenthesize(numMatrices-k)
 
-def main():
+if __name__ == '__main__':
     arr = [1, 2, 3, 4]
     print(matrixMultiply(arr), matrixMultiplyRec(arr, 1, len(arr)-1))
-
-if __name__ == '__main__':
-    main()
