@@ -12,8 +12,7 @@ class Node:
 # the linked list looks like:
 # (head) n5 -> n4 -> n3 -> n2 -> n1 -> None
 
-def main():
-
+if __name__ == "__main__":
     node1 = Node("hello", None)
     node2 = Node("Deniel", node1)
     node3 = Node("Blue", node2)
@@ -41,5 +40,3 @@ def main():
 
     # slowPointer is now at the middle node in the linked list
     print(slowPointer.data)
-
-main()
