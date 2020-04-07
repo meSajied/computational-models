@@ -8,7 +8,7 @@ class Node:
         self.data = data
         self.next = next
 
-def middleElement(self, head):
+def middle_element(cls, head):
     head = Node()
     fastPointer = head
     slowPointer = head
@@ -17,13 +17,8 @@ def middleElement(self, head):
         fastPointer = fastPointer.next.next
         slowPointer = slowPointer.next
     
-    return slowPointer
+    print(slowPointer)
 
 if __name__ == "__main__":
-    N = input()
-
-    for i in range(N):
-        inp = input()
-        element = middleElement(inp)
-    
-    print(element)
+    inp = input()
+    element = middleElement(inp)

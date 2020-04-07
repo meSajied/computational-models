@@ -1,4 +1,4 @@
-def countRec(solution, coins, target):
+def recursive_coin_change(solution, coins, target):
 
     
     if target == 0:
@@ -11,9 +11,9 @@ def countRec(solution, coins, target):
     if coins <= 0 and target >= 1:
         return 0
 
-    return countRec(solution, coins - 1, target) + countRec(solution, coins, target-solution[coins-1])
+    return recursive_coin_change(solution, coins - 1, target) + recursive_coin_change(solution, coins, target-solution[coins-1])
 
-def countDynamic(solution, coins, target):
+def Dynamic_coin_change(solution, coins, target):
 
     table = [[0 for x in range(coins)] for x in range(target+1)]
 
@@ -31,7 +31,7 @@ def countDynamic(solution, coins, target):
 
 '''arr = [1, 2, 3]
 coins = len(arr)
-print(countRec(arr, coins, 4))
+print(recursive_coin_change(arr, coins, 4))
 '''
 def main():
 
@@ -57,7 +57,7 @@ def main():
 
         #coinLength = len(coins)
         #print(coinLength)
-        print("Case ", i, ": ", countRec(coins, num_coin, target), countDynamic(coins, num_coin, target))
+        print("Case ", i, ": ", recursive_coin_change(coins, num_coin, target), Dynamic_coin_change(coins, num_coin, target))
         i += 1
 
 

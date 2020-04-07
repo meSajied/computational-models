@@ -1,16 +1,16 @@
 import sys
 
-def matrixMultiplyRec(matrix, i, j):
+def matrix_multiply_rec(matrix, i, j):
     __min = sys.maxsize
     if i == j:
         return 0
     for k in range(i, j):
-        count = matrixMultiplyRec(matrix, i, k) + matrixMultiplyRec(matrix, k+1, j) + matrix[i-1]*matrix[k]*matrix[j]
+        count = matrix_multiply_rec(matrix, i, k) + matrix_multiply_rec(matrix, k+1, j) + matrix[i-1]*matrix[k]*matrix[j]
     if count < __min:
         __min = count
     return __min
 
-def matrixMultiply(matrix):
+def matrix_multiply(matrix):
     n = len(matrix)
     minCost = [[0 for x in range(n)] for x in range(n)]
     for i in range(1, n):
@@ -34,4 +34,5 @@ def parenthesize(numMatrices):
 
 if __name__ == '__main__':
     arr = [1, 2, 3, 4]
-    print(matrixMultiply(arr), matrixMultiplyRec(arr, 1, len(arr)-1))
+    print(matrix_multiply(arr), matrix_multiply_rec(arr, 1, len(arr)-1))
+    print(matrix_multiply(arr))
