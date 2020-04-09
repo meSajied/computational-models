@@ -1,24 +1,24 @@
-# From Google Find the middle element of a linked list.....
-#error
-
-#Node Setup
 class Node:
+    def __init__(self, data):  
+        self.data = data  
+        self.next = None 
 
-    def __init__(self, data, next):
-        self.data = data
-        self.next = next
+class LinkedList: 
+    def __init__(self): 
+        self.head = None
 
-def middle_element(cls, head):
-    head = Node()
-    fastPointer = head
-    slowPointer = head
-    
-    while fastPointer.next != None and fastPointer.next.next != None:
-        fastPointer = fastPointer.next.next
-        slowPointer = slowPointer.next
-    
-    print(slowPointer)
+    def push(self, new_data): 
+        new_node = Node(new_data) 
+        new_node.next = self.head 
+        self.head = new_node
 
-if __name__ == "__main__":
-    inp = input()
-    element = middleElement(inp)
+    def middle_element(self):
+        slow_pointer = self.head
+        fast_pointer = self.head
+
+        if self.head is not None: 
+            while (fast_pointer is not None and fast_pointer.next is not None): 
+                fast_pointer = fast_pointer.next.next
+                slow_pointer = slow_pointer.next
+            
+            return slow_pointer.data
