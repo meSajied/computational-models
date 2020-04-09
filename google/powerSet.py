@@ -1,29 +1,17 @@
 import math
 
 def powerSet(array):
-
-    # the final power set...
     powerSet = []
-
-    # the total number of sets that the power set will contain
     total = int(math.pow(2, len(array)))
 
-    # loop through each value from 0 to 2^n
     for i in range(0, total):
-
-        # temporary set that will add to total
         temporarySet = []
-
-        # convert the integer to binary
         numbers = "{0:b}".format(i)
 
-        # pad the binary number so 1 becomes 001 for example
         while len(numbers) < len(array):
             numbers = "0" + numbers
 
-        # build the set that matches the 1's in the binary number
         for j in range(0, len(numbers)):
-
             if numbers[j] == "1":
                 temporarySet.append(array[j])
 
