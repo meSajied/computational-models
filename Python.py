@@ -6,13 +6,11 @@ class Node:
 class LinkedList:
     def __init__(self): 
         self.head = None
-
     def push(self, new_data:int) -> int:
         new_node = Node(new_data) 
         new_node.next = self.head 
         self.head = new_node
         return self.head.data
-
     def middle_element(self) -> int:
         '''
         >>> link = LinkedList()
@@ -34,8 +32,12 @@ class LinkedList:
         7
         >>> link.push(3)
         3
+        >>> link.push(20)
+        20
+        >>> link.push(-20)
+        -20
         >>> link.middle_element()
-        10
+        12
         >>> 
         '''
         slow_pointer = self.head
