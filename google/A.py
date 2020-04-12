@@ -14,6 +14,30 @@ class LinkedList:
         return self.head.data
 
     def middle_element(self) -> int:
+        '''
+        >>> link = LinkedList()
+        >>> link.push(5)
+        5
+        >>> link.push(6)
+        6
+        >>> link.push(8)
+        8
+        >>> link.push(8)
+        8
+        >>> link.push(10)
+        10
+        >>> link.push(12)
+        12
+        >>> link.push(17)
+        17
+        >>> link.push(7)
+        7
+        >>> link.push(3)
+        3
+        >>> link.middle_element()
+        10
+        >>> 
+        '''
         slow_pointer = self.head
         fast_pointer = self.head
         if self.head is not None: 
