@@ -14,6 +14,8 @@ class LinkedList:
     def middle_element(self) -> int:
         '''
         >>> link = LinkedList()
+        >>> link.middle_element()
+        No element found.
         >>> link.push(5)
         5
         >>> link.push(6)
@@ -47,6 +49,8 @@ class LinkedList:
                 fast_pointer = fast_pointer.next.next
                 slow_pointer = slow_pointer.next
             return slow_pointer.data
+        else:
+            print("No element found.")
             
 if __name__ == "__main__":
     link = LinkedList()

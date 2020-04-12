@@ -21,6 +21,8 @@ class LinkedList:
                 fast_pointer = fast_pointer.next.next
                 slow_pointer = slow_pointer.next
             return slow_pointer.data
+        else:
+            print("Found Nothing....")
             
 if __name__ == "__main__":
     link = LinkedList()
