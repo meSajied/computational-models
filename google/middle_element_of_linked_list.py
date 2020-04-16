@@ -23,12 +23,3 @@ class LinkedList:
             return slow_pointer.data
         else:
             print("Found Nothing....")
-            
-if __name__ == "__main__":
-    link = LinkedList()
-    N = int(input().strip())
-
-    for i in range(N):
-        data = int(input().strip())
-        link.push(data)
-    print(link.middle_element())

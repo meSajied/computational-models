@@ -19,13 +19,6 @@ def powerSet(array):
 
     return powerSet
 
-
-def main():
-
-    print(powerSet([1, 2, 3]))
-
-main()
-
 '''
 0 = 000
 1 = 001

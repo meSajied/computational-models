@@ -12,11 +12,3 @@ def bracket(left, right, string):
 
 	if right > 0:
 		bracket(left, right-1, string+")")
-
-
-
-
-if __name__ == '__main__':
-
-    bracket(3, 0, "")
-    print(arr)

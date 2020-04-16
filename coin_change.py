@@ -1,20 +1,14 @@
 def recursive_coin_change(solution, coins, target):
-
-    
     if target == 0:
         return 1
-
-
     if target < 0:
         return 0
-
     if coins <= 0 and target >= 1:
         return 0
 
     return recursive_coin_change(solution, coins - 1, target) + recursive_coin_change(solution, coins, target-solution[coins-1])
 
 def Dynamic_coin_change(solution, coins, target):
-
     table = [[0 for x in range(coins)] for x in range(target+1)]
 
     for i in range(coins):
@@ -60,5 +54,5 @@ def main():
         print("Case ", i, ": ", recursive_coin_change(coins, num_coin, target), Dynamic_coin_change(coins, num_coin, target))
         i += 1
 
-
-main()
+if __name__ == "__main__":
+    main()
