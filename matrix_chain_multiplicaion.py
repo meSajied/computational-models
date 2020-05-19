@@ -5,7 +5,8 @@ def matrix_multiply_rec(matrix, i, j):
     if i == j:
         return 0
     for k in range(i, j):
-        count = matrix_multiply_rec(matrix, i, k) + matrix_multiply_rec(matrix, k+1, j) + matrix[i-1]*matrix[k]*matrix[j]
+        count = matrix_multiply_rec(matrix, i, k) + matrix_multiply_rec(matrix, 
+                                                        k+1, j) + matrix[i-1]*matrix[k]*matrix[j]
     if count < __min:
         __min = count
     return __min
