@@ -36,8 +36,8 @@ public:
             value[0][j]++;
         }
 
-        for(i = 0; i < first_length; i++){
-            for(j = 0; j < second_length; j++){
+        for(i = 0; i <= first_length; i++){
+            for(j = 0; j <= second_length; j++){
                 if(i == 0)
                     value[i][j] = j;
                 else if(j == 0)
@@ -49,7 +49,7 @@ public:
 
             }
         }
-        return value[i][j];
+        return value[first_length][second_length];
     }
 };
 
