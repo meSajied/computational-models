@@ -52,18 +52,3 @@ public:
         return value[first_length][second_length];
     }
 };
-
-int main(){
-    EditDistance edit_distance;
-    string first_string, second_string;
-    int first_length, second_length;
-
-    cin >> first_string >> second_string;
-
-    first_length = first_string.length();
-    second_length = second_string.length();
-
-    cout << edit_distance.recursive(first_string, second_string, first_length, second_length) << endl;
-    cout << edit_distance.dynamic(first_string, second_string, first_length, second_length) << endl;
-    return 0;
-}
