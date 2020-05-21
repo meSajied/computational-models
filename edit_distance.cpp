@@ -26,19 +26,21 @@ public:
     }
 
     inline int dynamic(string first_string, string second_string, int first_length, int second_length){
-
         int value[1000][1000], i, j;
-        for (i = 1; i <= first_length; i++){
+        
+        for(i = 1; i <= first_length; i++){
             value[i][0]++;
         }
-        for (j = 1; j <= second_length; j++){
+
+        for(j = 1; j <= second_length; j++){
             value[0][j]++;
         }
-        for (i = 1; i <= first_length; i++) {
-            for (j = 1; j <= second_length; j++) {
+
+        for(i = 0; i < first_length; i++){
+            for(j = 0; j < second_length; j++){
                 if(i == 0)
                     value[i][j] = j;
-                else if (j == 0)
+                else if(j == 0)
                     value[i][j] = i;
                 else if(first_string[i-1] == second_string[j-1])
                     value[i][j] = value[i-1][j-1];
