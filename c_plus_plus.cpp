@@ -1,21 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class add{
+class poi{
 public:
     int a;
     int b;
-    int get_num(a, b){
-        return a, b;
-    }
-    int add(){
-        return this->a+this->b;
-    }
+    int c;
+    a = c;
+    b = c;
 };
 
-int main()[
-    int a=1, b=1;
-    add addi;
-    addi.get_num(a, b);
-    cout << addi.add() << endl;
-]
+int main(){
+    poi po;
+    
+    po.a = 5;
+    po.b = 2;
+
+    po.c = 6;
+    cout << po.a <<po.b;
+}
