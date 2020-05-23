@@ -40,8 +40,9 @@ public:
     }
 
     inline bool on_segment(Point first_point, Point second_point, Point third_point){
-        if (min(first_point.x, second_point.x) < third_point.x < max(first_point.x, second_point.x) && 
-            min(first_point.y, second_point.y) < third_point.y < max(first_point.y, second_point.y))
+        if (min(first_point.x, second_point.x) <= third_point.x && third_point.x <= 
+            max(first_point.x, second_point.x) && min(first_point.y, second_point.y) <= third_point.y && 
+            third_point.y <= max(first_point.y, second_point.y))
             return true;
         
         else
