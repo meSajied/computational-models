@@ -27,7 +27,7 @@ public:
         else if (third_direction == 0 && on_segment(first_point, second_point, third_point))
             return true;
         
-        else if (third_direction == 0 && on_segment(first_point, second_point, third_point))
+        else if (third_direction == 0 && on_segment(first_point, second_point, forth_point))
             return true;
         
         else
@@ -58,5 +58,5 @@ int main(){
     cin >> third_point.x >> third_point.y;
     cin >> forth_point.x >> forth_point.y;
 
-    cout << segment.intersect(first_point, second_point, third_point, forth_point);
+    cout << endl << segment.intersect(first_point, second_point, third_point, forth_point) << endl;
 }
