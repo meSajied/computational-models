@@ -1,14 +1,25 @@
+/**
+ * @file
+ * @brief check whether two line segments intersect each other
+ * or not.
+ */
+#include <bits/stdc++.h>
 #include <iostream>
+#include <time.h>
 
 /*
-* A algorithm to find whether two line intersect where "on_segment" finds
-* the cross multiplication and direction find whether line is in clockwise or not....
-*/
-
+ * Define a Point.
+ */
 struct Point {
-    int x, y;
+    int x;  /// Point respect to x coordinate
+    int y;  /// Point respect to y coordinate
 };
 
+/**
+ * intersect returns true if segments of two line intersects and
+ * false if they do not. It calls the subroutines direction
+ * which computes the orientation.
+ */
 struct SegmentIntersection {
     inline bool intersect(Point first_point, Point second_point,
                                     Point third_point, Point forth_point) {
@@ -41,12 +52,25 @@ struct SegmentIntersection {
             return false;
     }
 
+   /**
+    * We will find direction of line here respect to @first_point.
+    * Here @second_point and @third_point is first and second points
+    * of the line respectively. we want a method to determine which way a
+    * given angle these three points turns. If returned number is negative,
+    * then the angle is counter-clockwise. That means the line is going to
+    * right to left. We will fount angle as clockwise if the method returns
+    * positive number.
+    */
     inline int direction(Point first_point, Point second_point,
                                                     Point third_point) {
         return ((third_point.x-first_point.x)*(second_point.y-first_point.y))-
             ((second_point.x-first_point.x) * (third_point.y-first_point.y));
     }
 
+   /**
+    * This method determines whether a point known to be colinear
+    * with a segment lies on that segment.
+    */
     inline bool on_segment(Point first_point, Point second_point,
                                                         Point third_point) {
         if (std::min(first_point.x, second_point.x) <= third_point.x &&
@@ -60,6 +84,10 @@ struct SegmentIntersection {
     }
 };
 
+/*
+ * This is the main function to test whether the algorithm is
+ * working well.
+ */
 int main() {
     SegmentIntersection segment;
     Point first_point, second_point, third_point, forth_point;
