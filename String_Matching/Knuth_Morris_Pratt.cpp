@@ -1,14 +1,19 @@
-#include <bits/stdc++.h> 
+#include <bits/stdc++.h>
 using namespace std;
 
 class KnuthMoris{
 public:
-    void string_match(string text, string pattern){
+    //int prefix[INT_MAX];
+
+    int string_match(string text, string pattern){
         int text_length = text.length();
         int pattern_length = pattern.length();
         int prefix[INT_MAX];
-        prefix = compute_prefix(pattern);
         int matched_character = 0;
+
+        for(int i = 0; i < pattern_length; i++){
+            prefix[i] = compute_prefix(pattern);
+        }
 
         for(int i = 1; i <= text_length; i++){
             while(matched_character > 0 && pattern[matched_character+1] != text[i]){
@@ -23,6 +28,7 @@ public:
                 matched_character = prefix[matched_character];
             }
         }
+        return matched_character;
     }
 
     int compute_prefix(string pattern){
@@ -42,15 +48,16 @@ public:
                 LONGEST_PREFIX_LENGTH++;
             }
             prefix[matched_character] = LONGEST_PREFIX_LENGTH;
+            return prefix[matched_character];
         }
-        return prefix[pattern_length];
     }
 };
 
 int main(){
+    
     KnuthMoris kmp;
     string txt = "ABABDABACDABABCABAB"; 
     string pat = "ABABCABAB";
-    kmp.string_match(txt, pat);
-    return 0; 
+    cout << kmp.string_match(txt, pat) << endl;
+    return 0;
 }

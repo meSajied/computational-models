@@ -2,7 +2,7 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "g++ build active file",
+            "label": "C/C++: g++ build active file",
             "command": "/usr/bin/g++",
             "args": [
                 "-g",
@@ -11,50 +11,16 @@
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
             "options": {
-                "cwd": "/usr/bin"
-            }
-        },
-        {
-            "type": "shell",
-            "label": "gcc build active file",
-            "command": "/usr/bin/gcc",
-            "args": [
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
             ],
-            "options": {
-                "cwd": "/usr/bin"
-            }
-        },
-        {
-            "type": "shell",
-            "label": "g++-7 build active file",
-            "command": "/usr/bin/g++-7",
-            "args": [
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
-            ],
-            "options": {
-                "cwd": "/usr/bin"
-            }
-        },
-        {
-            "type": "shell",
-            "label": "g++-9 build active file",
-            "command": "/usr/bin/g++-9",
-            "args": [
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
-            ],
-            "options": {
-                "cwd": "/usr/bin"
+            "group": {
+                "kind": "build",
+                "isDefault": true
             }
         }
-    ]
+    ],
+    "version": "2.0.0"
 }
