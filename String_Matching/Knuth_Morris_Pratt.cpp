@@ -3,17 +3,11 @@ using namespace std;
 
 class KnuthMoris{
 public:
-    //int prefix[INT_MAX];
-
     int string_match(string text, string pattern){
         int text_length = text.length();
         int pattern_length = pattern.length();
-        int prefix[INT_MAX];
         int matched_character = 0;
-
-        for(int i = 0; i < pattern_length; i++){
-            prefix[i] = compute_prefix(pattern);
-        }
+        vector <int> prefix = compute_prefix(pattern);
 
         for(int i = 1; i <= text_length; i++){
             while(matched_character > 0 && pattern[matched_character+1] != text[i]){
@@ -31,7 +25,7 @@ public:
         return matched_character;
     }
 
-    int compute_prefix(string pattern){
+    vector <int> compute_prefix(string pattern){
         int pattern_length = pattern.length();
         int prefix[INT_MAX];
         prefix[0] = 0;
@@ -48,8 +42,8 @@ public:
                 LONGEST_PREFIX_LENGTH++;
             }
             prefix[matched_character] = LONGEST_PREFIX_LENGTH;
-            return prefix[matched_character];
         }
+        return prefix[matched_character];
     }
 };
 

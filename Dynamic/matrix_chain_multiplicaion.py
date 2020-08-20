@@ -8,7 +8,7 @@ class MatrixChainMultiplication:
 
         for k in range(i, j):
             count = self.recursive(matrix, i, k) + self.recursive(matrix, 
-                                                            k+1, j) + matrix[i-1]*matrix[k]*matrix[j]
+                                        k+1, j) + matrix[i-1]*matrix[k]*matrix[j]
 
         if count < __min:
             __min = count
@@ -30,7 +30,6 @@ class MatrixChainMultiplication:
                     count = minCost[i][k] + minCost[k+1][j] + matrix[i-1]*matrix[k]*matrix[j]
                     if count < minCost[i][j]:
                         minCost[i][j] = count
-                        print(minCost[i][j])
 
         return minCost[i][j]
 
