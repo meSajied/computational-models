@@ -9,22 +9,35 @@ struct Items{
     int item_values;
 };
 
-
 class FractionalKnapsack{
 private:
-    vector<int>&items;
-    vector<int>item_weights;
-    vector<int>item_values;
-    final const int MAX_WEIGHT;
+    vector <int> *items;
+    vector <int> *item_weights;
+    vector <int> *item_values;
+    const int *KNAPSACK_CAPACITY;
 
     int knapsack(){
+        vector <int> *items;
+        vector <int> *item_weights;
+        vector <int> *item_values;
+        vector <int> item_density;
+        const int *KNAPSACK_CAPACITY = this->KNAPSACK_CAPACITY;
+
         items = this->items;
         item_weights = this->item_weights;
         item_values = this->item_values;
-        vector <float> item_density;
 
-        item_density = (item_values/item_weights);
-        *max_heap(item_density.begin(), item_density.end());
+        for (auto &i: *items){
+            item_density.at(i) = (int)(item_values->at(i) / item_weights->at(i));
+        }
+        
+
+        sort(*item_density.begin(), *item_density.end(), 0);
+
+        for(int weight = 0; weight < items->size(); weight++){
+            int total_weight = 0;
+
+        }
 
         return 0;
     }
@@ -35,11 +48,11 @@ public:
         return 0;
     }
 
-    void get_items(vector<int>&items, vector<int>&item_weights, 
-        vector<int>&item_values, int MAX_WEIGHT){
+    void get_items(vector<int>*items, vector<int>*item_weights, 
+        vector<int>*item_values, int *KNAPSACK_CAPACITY){
         this->items = items;
         this->item_weights = item_weights;
         this->item_values = item_values;
-        this->MAX_WEIGHT = MAX_WEIGHT;
+        this->KNAPSACK_CAPACITY = KNAPSACK_CAPACITY;
     }
-}
+};
