@@ -1,11 +1,11 @@
 #include <iostream>
+#include "data_structure/headers/hash_table.h"
 using namespace std;
 
 int main(){
-    int *p, *q;
-    int var = 20;
+    Hash hash(10);
 
-    p = &var;
-    q = p;
-    cout << p <<" " << q << endl;
+    hash.insert_item(7);
+    hash.insert_item(14);
+    hash.delete_item(14);
 }

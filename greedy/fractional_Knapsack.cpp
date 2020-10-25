@@ -11,48 +11,51 @@ struct Items{
 
 class FractionalKnapsack{
 private:
-    vector <int> *items;
-    vector <int> *item_weights;
-    vector <int> *item_values;
-    const int *KNAPSACK_CAPACITY;
-
-    int knapsack(){
-        vector <int> *items;
-        vector <int> *item_weights;
-        vector <int> *item_values;
-        vector <int> item_density;
-        const int *KNAPSACK_CAPACITY = this->KNAPSACK_CAPACITY;
-
-        items = this->items;
-        item_weights = this->item_weights;
-        item_values = this->item_values;
-
-        for (auto &i: *items){
-            item_density.at(i) = (int)(item_values->at(i) / item_weights->at(i));
-        }
-        
-
-        sort(*item_density.begin(), *item_density.end(), 0);
-
-        for(int weight = 0; weight < items->size(); weight++){
-            int total_weight = 0;
-
-        }
-
-        return 0;
-    }
+    vector <int> items;
+    vector <int> item_weights;
+    vector <int> items_values;
+    int ITEM_CAPACITY;
 
 public:
-    int print_selected_items(){
-        knapsack();
+    int knapsack(){
+        vector <Items> items = this->items;
+        vector <Items> item_weights = this->item_weights;
+        vector <Items> items_values = this->item_values;
+        vector <Items> ITEM_CAPACITY = ITEM_CAPACITY;
+
+        vector <float> item_density;
+        vector <int>::iterator itr;
+
+        for(int i = 1; i <= items.size(); i++){
+            items.push_back(i);
+            item_weights.push_back(i);
+            items_values.push_back(i)
+        }
+
+        for(itr = items.begin(); itr != items.end(); itr++){
+            item_density[itr] = items_values[itr] / item_weights[itr];
+        }
+
+        sort(item_density.begin(), item_density.end());
+
         return 0;
     }
 
-    void get_items(vector<int>*items, vector<int>*item_weights, 
-        vector<int>*item_values, int *KNAPSACK_CAPACITY){
+    int print_value(){
+        return 0;
+    }
+
+    void get_data(vector<int>&items, vector<int>&item_weights, 
+                    vector<int>&item_values, int& ITEM_CAPACITY){
         this->items = items;
         this->item_weights = item_weights;
-        this->item_values = item_values;
-        this->KNAPSACK_CAPACITY = KNAPSACK_CAPACITY;
+        this->items_values = item_values;
+        this->ITEM_CAPACITY = ITEM_CAPACITY;
     }
 };
+
+int main(){
+    Items items;
+    items.
+    return 0;
+}
