@@ -19,7 +19,8 @@ public:
     int append_list(int data);
     int delete_data(int data);
     bool search(int data);
-    bool search(int first_node, int second_node);
+    bool search(int first_node, 
+                int second_node);
     int print_list();
 };
 
