@@ -1,11 +1,24 @@
 #include <iostream>
-#include "data_structure/headers/hash_table.h"
+#include <cassert>
 using namespace std;
 
 int main(){
-    Hash hash(10);
+    int test_case;
+    cin >> test_case;
 
-    hash.insert_item(7);
-    hash.insert_item(14);
-    hash.delete_item(14);
+    assert(test_case >= 1);
+    assert(test_case <= 1000);
+
+    while(test_case--){
+        int x, y, N;
+        cin >> x >> y >> N;
+
+        assert(x >= 0);
+        assert(x <= 1073741823);
+        assert(y >= 0);
+        assert(y <= 1073741823);
+        assert(N >= 0);
+        assert(N <= 1073741823);
+
+    }
 }

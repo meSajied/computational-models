@@ -3,14 +3,14 @@
 using namespace std;
 
 LinkedList::create_head(int data){
-    Node new_node(data);
+    LinkedListNode new_node(data);
     new_node->next = this->head;
     this->head = new_node;
 }
 
 LinkedList::append_list(int data){
-    Node* new_node(data);
-    Node* last= this->head;
+    LinkedListNode* new_node(data);
+    LinkedListNode* last= this->head;
 
     new_node->next = NULL;
 
@@ -30,7 +30,7 @@ LinkedList::append_list(int data){
 
 }
 
-LinkedList::search(Node* node=this, int data){
+LinkedList::search(LinkedListNode* node=this, int data){
     if(node == NULL){
         return NULL;
     }

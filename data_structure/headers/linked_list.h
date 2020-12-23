@@ -5,11 +5,11 @@ class LinkedList{
 private:
     int head;
 
-    class Node{
-        Node* next = NULL;
+    class LinkedListNode{
+        LinkedListNode* next = NULL;
         int data;
 
-        Node(int data){
+        LinkedListNode(int data){
             this->data = data;
         }
     };
