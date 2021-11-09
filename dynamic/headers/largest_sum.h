@@ -1,15 +1,15 @@
-//#include <vector>
-//using namespace std;
+//
+// Created by me_sajied on 09/11/2021.
+//
 
-#ifndef ADJACENCY_LIST_H
-#define ADJACENCY_LIST_H
+#ifndef UNTITLED_LARGEST_SUM_H
+#define UNTITLED_LARGEST_SUM_H
 
 
 class LargestSum {
 public:
-  int one_dim(int A[]);
-  //int two_dim(int A[][]);
+		int one_dim(int A[]);
+		//int two_dim(int A[][]);
 };
 
-
-#endif
+#endif //UNTITLED_LARGEST_SUM_H
