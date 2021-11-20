@@ -2,19 +2,21 @@
 using namespace std;
 
 
-int knapSack(int capacity, int weight[], int price[], int n){
-
+int knapSack(int capacity, int weight[], int price[]) {
 	int i, w;
-	int matrix[n+1][capacity+1];
-	//n = sizeof(price)/ sizeof(price[0]);
 
+	int n = sizeof(price)/ sizeof(price[0]);
+	int matrix[n+1][capacity+1];
+	
 	for (int i = 0; i <= n; i++) {
 		for (int w = 0; w <= capacity; ++w) {
 
 			if(i == 0 || w == 0)
 				matrix[i][w] = 0;
 			else if(weight[i-1] <= w)
-				matrix[i][w] = max(price[i-1]+matrix[i-1][w-weight[i-1]], matrix[i-1][w]);
+				matrix[i][w] = 
+					max(price[i-1]+matrix[i-1][w-weight[i-1]], 
+					matrix[i-1][w]);
 			else
 				matrix[i][w] = matrix[i-1][w];
 

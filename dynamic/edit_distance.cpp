@@ -6,9 +6,11 @@ inline int min(int first, int second, int third){
         return min(min(first, second), third);
 }
 
-class EditDistance{
+class EditDistance {
 public:
-    inline int recursive(string first_string, string second_string, int first_length, int second_length){
+    inline int recursive(string first_string, 
+        string second_string, int first_length, 
+        int second_length) {
 
         if(first_length == 0)
             return second_length;
@@ -16,23 +18,28 @@ public:
         else if(second_length == 0)
             return first_length;
 
-        else if(first_string[first_length-1] == second_string[second_length-1])
-            return recursive(first_string, second_string, first_length-1, second_length-1);
+        else if(first_string[first_length-1] == 
+            second_string[second_length-1])
+            return recursive(first_string, second_string, 
+                first_length-1, second_length-1);
 
         else
-            return 1 + min(recursive(first_string, second_string, first_length-1, second_length),
-                    recursive(first_string, second_string, first_length, second_length-1),
-                    recursive(first_string, second_string, first_length-1, second_length-1));
+            return 1 + min(recursive(first_string, second_string, 
+                first_length-1, second_length),
+                recursive(first_string, second_string, 
+                first_length, second_length-1), recursive(first_string, 
+                second_string, first_length-1, second_length-1));
     }
 
-    inline int dynamic(string first_string, string second_string, int first_length, int second_length){
-        int value[1000][1000], i, j;
+    inline int dynamic(string first_string, string second_string, 
+            int first_length, int second_length){
+        int value[first_length][second_length], i, j;
         
-        for(i = 1; i <= first_length; i++){
+        for(i = 0; i <= first_length; i++){
             value[i][0]++;
         }
 
-        for(j = 1; j <= second_length; j++){
+        for(j = 0; j <= second_length; j++){
             value[0][j]++;
         }
 
@@ -40,15 +47,33 @@ public:
             for(j = 0; j <= second_length; j++){
                 if(i == 0)
                     value[i][j] = j;
+
                 else if(j == 0)
                     value[i][j] = i;
+
                 else if(first_string[i-1] == second_string[j-1])
                     value[i][j] = value[i-1][j-1];
+                
                 else
-                    value[i][j] = 1 + min(value[i][j-1], value[i-1][j], value[i-1][j-1]);
+                    value[i][j] = 1 + min(value[i][j-1], 
+                                    value[i-1][j], value[i-1][j-1]);
 
             }
         }
         return value[first_length][second_length];
     }
 };
+
+int main()
+{
+    // your code goes here
+    string str1 = "sunday";
+    string str2 = "saturday";
+
+    EditDistance x;
+  
+    cout << x.recursive(str1, str2, str1.length(),
+                       str2.length());
+  
+    return 0;
+}

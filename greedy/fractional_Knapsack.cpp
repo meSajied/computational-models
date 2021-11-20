@@ -27,7 +27,7 @@ public:
         vector <int>::iterator itr;
 
         for(int i = 1; i <= items.size(); i++){
-            items.push_back(i);
+            items[i].push_back(i);
             item_weights.push_back(i);
             items_values.push_back(i)
         }
@@ -56,6 +56,5 @@ public:
 
 int main(){
     Items items;
-    items.
     return 0;
 }

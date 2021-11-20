@@ -14,39 +14,34 @@ public:
 		if (columns[i - 1] == rows[j - 1])
 			return 1 + recursive(columns, rows, i - 1, j - 1);
 		else
-			return max(recursive(columns, rows, i, j - 1), recursive(columns, rows, i - 1, j));
+			return max(recursive(columns, rows, i, j - 1), 
+								recursive(columns, rows, i - 1, j));
 	}
 
-	inline int dynamic(string columns, string rows) {
+	inline int dynamic(string X, string Y) {
+		int m = X.length();
+		int n = Y.length();
+
+		int L[m+1][n+1];
 		int i, j;
-		int columnLength = columns.length();
-		int rowLength = rows.length();
-		int values[columnLength+1][rowLength+1];
-		int dimention[columnLength][rowLength];
 		
-		for (i = 1; i <= columnLength; i++) {
-			values[i][0] = 0;
-		}
-		for (j = 0; j <= rowLength; j++) {
-			values[0][j] = 0;
-		}
-		for (i = 1; i <= columnLength; i++) {
-			for (j = 1; j <= rowLength; j++) {
-				if(columns[i] == rows[j]) {
-					values[i][j] = values[i - 1][j - 1] + 1;
-					dimention[i][j] = Diagonal;
-				}
-				else if(values[i - 1][j] >= values[i][j - 1]) {
-					values[i][j] = values[i - 1][j];
-					dimention[i][j] = FromUp;
-				}
-				else {
-					values[i][j] = values[i][j - 1];
-					dimention[i][j] = FromLeft;
-				}
-			}
-			return values[columnLength+1][rowLength+1];
-		}
+		for (i=0; i<=m; i++)
+{
+    for (j=0; j<=n; j++)
+    {
+    if (i == 0 || j == 0)
+        L[i][j] = 0;
+ 
+    else if (X[i-1] == Y[j-1])
+        L[i][j] = L[i-1][j-1] + 1;
+ 
+    else
+        L[i][j] = max(L[i-1][j], L[i][j-1]);
+    }
+}
+     
+/* L[m][n] contains length of LCS for X[0..n-1] and Y[0..m-1] */
+return L[m][n];
 	}
 };
 
