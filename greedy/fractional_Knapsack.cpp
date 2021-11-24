@@ -4,57 +4,72 @@
 using namespace std;
 
 struct Items{
-    int items;
-    int item_weights;
-    int item_values;
+    int item_value = 0;
+    int item_weight = 0;
+    float item_density = 0.0;
 };
 
-class FractionalKnapsack{
-private:
-    vector <int> items;
-    vector <int> item_weights;
-    vector <int> items_values;
-    int ITEM_CAPACITY;
-
+class FractionalKnapsack {
 public:
-    int knapsack(){
-        vector <Items> items = this->items;
-        vector <Items> item_weights = this->item_weights;
-        vector <Items> items_values = this->item_values;
-        vector <Items> ITEM_CAPACITY = ITEM_CAPACITY;
+	float TOTAL_VALUE = 0.0;
 
-        vector <float> item_density;
-        vector <int>::iterator itr;
+	void get_data(int values[], int weights[], 
+			int WEIGHT, int size) {
+		this->WEIGHT = WEIGHT;
+		this->size = size;
+		
+		for (int i = 0; i < size; i++) {
+			item[i].item_value = values[i];
+			item[i].item_weight = weights[i];
+			item[i].item_density = (float)(item[i].item_value) / 
+					(float)(item[i].item_weight);
+		}		
+	}
 
-        for(int i = 1; i <= items.size(); i++){
-            items[i].push_back(i);
-            item_weights.push_back(i);
-            items_values.push_back(i)
-        }
+	void knapsack() {
+		sort(item, item+size, greater);
 
-        for(itr = items.begin(); itr != items.end(); itr++){
-            item_density[itr] = items_values[itr] / item_weights[itr];
-        }
+		int current_weight = 0;
+		for(int i = 0; i < size; i++) {
+			if(current_weight + item[i].item_weight <= WEIGHT) {
+				current_weight += item[i].item_weight;
+				TOTAL_VALUE += item[i].item_value;
+			}
 
-        sort(item_density.begin(), item_density.end());
+			else {
 
-        return 0;
-    }
+				TOTAL_VALUE += (WEIGHT-current_weight) 
+					* item[i].item_density;
+			}
+			
+		}
+		
 
-    int print_value(){
-        return 0;
-    }
+	}
 
-    void get_data(vector<int>&items, vector<int>&item_weights, 
-                    vector<int>&item_values, int& ITEM_CAPACITY){
-        this->items = items;
-        this->item_weights = item_weights;
-        this->items_values = item_values;
-        this->ITEM_CAPACITY = ITEM_CAPACITY;
-    }
+private:
+	int WEIGHT;
+	Items item[100];
+	int size;
+
+	static bool greater(struct Items r1, struct Items r2) {
+		return (r1.item_density > r2.item_density);
+		
+	}
+
 };
 
-int main(){
-    Items items;
+int main() {
+    int values[] = {60, 100, 120};
+		int weights[] = {10, 20, 30};
+		int N = (int)(sizeof(values) / sizeof(values[0]));
+
+		FractionalKnapsack fk;
+
+		fk.get_data(values, weights, 50, N);
+		fk.knapsack();
+
+		cout << fk.TOTAL_VALUE << endl;
+
     return 0;
 }
