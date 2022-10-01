@@ -1,17 +1,18 @@
-#include <bits/stdc++.h>
-#include "graph/headers/adjacency_list.h"
+#include "graph/headers/graph.h"
 using namespace std;
 
 int main() {
-  vector <int> v;
-  v.push_back(5);
-  v.push_back(7);
-  v.push_back(1);
-  v.push_back(2);
-  int u, j;
-  Adjacent adj;
+	Graph g(4);
+	g.addEdge(0, 1);
+	g.addEdge(0, 2);
+	g.addEdge(1, 2);
+	g.addEdge(2, 0);
+	g.addEdge(2, 3);
+	g.addEdge(3, 3);
 
-  adj.add_edge(v, u, j);
+	cout << "Following is Breadth First Traversal "
+		<< "(starting from vertex 2) \n";
+	g.BFS(2);
 
-  
+	return 0;
 }

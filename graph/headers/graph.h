@@ -1,16 +1,18 @@
+#include <iostream>
+#include <list>
 #include <vector>
 using namespace std;
 
 #ifndef UNTITLED_GRAPH_H
 #define UNTITLED_GRAPH_H
 
-class Graph {
+class Graph{
+	int vertecies; 
+	vector<list<int>> adj;
+
 public:
-		void add_edge(vector<int> adj[], int first_vertex,
-		              int second_vertex);
-
-		void print_graph(vector<int> adj[], int V);
+	Graph(int vertecies);
+	void addEdge(int u, int v);
+	void BFS(int source);
 };
-
-
 #endif //UNTITLED_GRAPH_H

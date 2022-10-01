@@ -2,14 +2,14 @@
 #include "headers/linked_list.h"
 using namespace std;
 
-LinkedList::create_head(int data){
+int LinkedList::create_head(int data){
     LinkedListNode new_node(data);
     new_node->next = this->head;
     this->head = new_node;
 }
 
-LinkedList::append_list(int data){
-    LinkedListNode* new_node(data);
+int LinkedList::append_list(int data){
+    LinkedListNode* new_node = data;
     LinkedListNode* last= this->head;
 
     new_node->next = NULL;

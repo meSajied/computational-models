@@ -1,22 +1,35 @@
-//
-// Created by me_sajied on 09/11/2021.
-//
-
 #include "headers/graph.h"
-#include <iostream>
-#include <vector>
 using namespace std;
 
-void Graph::add_edge(vector<int> adj[],
-                        int first_vertex, int second_vertex) {
-	adj[first_vertex].push_back(second_vertex);
-	adj[second_vertex].push_back(first_vertex);
+Graph::Graph(int vertecies) {
+	this->vertecies = vertecies;
+	adj.resize(vertecies);
 }
 
-void Graph::print_graph(vector<int> adj[], int V) {
-	for(int i = 0; i < V; i++) {
-		for(auto x: adj[i]) {
-			cout << x << endl;
+void Graph::addEdge(int u, int v) {
+	adj[u].push_back(v);
+  adj[v].push_back(u);
+}
+
+void Graph::BFS(int source) {
+	vector<bool> visited;
+	visited.resize(vertecies, false);
+
+	list<int> queue;
+
+	visited[source] = true;
+	queue.push_back(source);
+
+	while(!queue.empty()) {
+		source = queue.front();
+		cout << source << " ";
+		queue.pop_front();
+
+		for(auto adjecent: adj[source]) {
+			if(!visited[adjecent]) {
+				visited[adjecent] = true;
+				queue.push_back(adjecent);
+			}
 		}
 	}
 }
