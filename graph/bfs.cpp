@@ -1,10 +1,10 @@
-#include "headers/bfs.h"
+#include "headers/graph.h"
 
-void BFS::treverse(int source) {
-  vector<bool> visited;
+void Graph::BFS(int source) {
+	vector<bool> visited;
 	visited.resize(vertecies, false);
 	visited[source] = true;
-	
+
 	list<int> queue;
 	queue.push_back(source);
 

@@ -8,13 +8,14 @@ using namespace std;
 
 class Graph{
 protected:
-	int vertecies; 
+	int vertecies;
 	vector<list<int>> adj;
 	
 public:
 	Graph();
 	Graph(int vertecies);
 	void addEdge(int u, int v);
+	void BFS(int source);
 };
 
 #endif //UNTITLED_GRAPH_H
