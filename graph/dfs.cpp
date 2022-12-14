@@ -1,15 +1,28 @@
-#include "graph/headers/dfs.h"
+#include "headers/dfs.h"
 
-void DFS::treverse(int source) {
-	vector<bool> visited;
-	visited.resize(vertecies, false);
-	visited[source] = true;
-	
-	cout << source << endl;
+DFS::DFS() {
 
-	for(auto adjecent: adj[source]) {
-		if(!visited[adjecent]) {
-			DFS::treverse(adjecent);
-		}
-	}
+}
+
+DFS::DFS(int verticies) {
+  this->verticies = verticies;
+  adj.resize(verticies, pair<int, int> s);
+  dfs_num.resize(verticies, WHITE);
+}
+
+DFS::treverse(int source) {
+
+}
+
+DFS::dfs_visit(int source) {
+  dfs_num[source] = BLACK;
+  printf("%d", source);
+
+  for(int i = 0; i < adj[source].size(); i++) {
+    pair<int, int> v = adj[source][i];
+
+    if(dfs_num[v.first] == WHITE) {
+      DFS::dfs_visit(v.first);
+    } 
+  }
 }

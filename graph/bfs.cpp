@@ -1,8 +1,23 @@
-#include "headers/graph.h"
+#include "headers/bfs.h"
 
-void Graph::BFS(int source) {
-	vector<bool> visited;
+BFS::BFS() {
+
+}
+
+BFS::BFS(int vertecies) {
+	this->vertecies = vertecies;
+	adj.resize(vertecies);
+}
+
+void BFS::add_edge(int u, int v) {
+	adj[u].push_back(v);
+  adj[v].push_back(u);
+}
+
+void BFS::treverse(int source) {
+	vector<int> visited;
 	visited.resize(vertecies, false);
+
 	visited[source] = true;
 
 	list<int> queue;
@@ -10,13 +25,13 @@ void Graph::BFS(int source) {
 
 	while(!queue.empty()) {
 		source = queue.front();
-		cout << source << endl;
+		printf("%d\n", source);
 		queue.pop_front();
 
-		for(auto adjecent: adj[source]) {
-			if(!visited[adjecent]) {
-				visited[adjecent] = true;
-				queue.push_back(adjecent);
+		for(auto adjacent : adj[source]) {
+			if(!visited[adjacent]) {
+				visited[adjacent] = true;
+				queue.push_back(adjacent);
 			}
 		}
 	}

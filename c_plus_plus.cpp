@@ -1,15 +1,35 @@
-#include "graph/headers/graph.h"
+#include <bits/stdc++.h>
 using namespace std;
 
+using ll = long long;
+/*
+class Solution {
+public:
+	vector<string> findRepeatedDnaSequences(string s) {
+		unordered_map<string, int> m;
+		vector<string> res;
+		for(int i = 0; i + 9 < s.size(); i++) {
+			string sub = s.substr(i, 10);
+			m[sub];
+			if (m[sub]++ == 2)
+				res.push_back(sub);
+		}
+		return res;
+	}
+};
+*/
+
 int main() {
-	Graph g(4);
-	g.addEdge(0, 1);
-	g.addEdge(0, 2);
-	g.addEdge(1, 2);
-	g.addEdge(2, 0);
-	g.addEdge(2, 3);
-	g.addEdge(3, 3);
-	g.BFS(2);
+	string str = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT";
+	//Solution s;
+
+	unordered_map<string, int> mapa;
+	string sub = str.substr(0, 10);
+
+	mapa[sub]++;
+	if(mapa[sub]++ == 1) {
+		cout << "True" << endl;
+	}
 
 	return 0;
 }
