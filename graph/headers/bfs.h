@@ -8,7 +8,7 @@ using namespace std;
 #define UNTITLED_BFS_H
 
 class BFS{
-protected:
+private:
 	int vertecies;
 	vector<list<int>> adj;
 	
