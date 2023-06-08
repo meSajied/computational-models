@@ -1,18 +1,18 @@
 #include <string>
 #include <iostream>
-#include <vector>
-#include <unordered_set>
+#include <cmath>
+
+#define lg long
+#define llg long long
 using namespace std;
 
-
 int main() {
-  freopen("testcases.txt", "r", stdin);
-  freopen("output.txt", "w", stdout);
+  #ifdef READ_FILE
+  freopen("testcases", "r", stdin);
+  freopen("output", "w", stdout);
+  #endif
 
   int n;
 
-  
-  cin >> n;
-  cout << n << endl;
   return 0;
 }
