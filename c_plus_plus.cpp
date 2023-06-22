@@ -6,13 +6,10 @@ using namespace std;
 
 
 int main() {
-  freopen("testcases.txt", "r", stdin);
-  freopen("output.txt", "w", stdout);
+  //freopen("testcases.txt", "r", stdin);
+  //freopen("output.txt", "w", stdout);
 
-  int n;
+  vector<int> vec = {1, 2, 3, 4, 5};
 
-  
-  cin >> n;
-  cout << n << endl;
-  return 0;
+  vec.pop_back();
 }
