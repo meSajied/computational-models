@@ -1,31 +1,53 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+#include <string>
 
-// Function to retrieve hardware uptime in seconds
-unsigned long long getHardwareUptime() {
-    // You would need to use hardware-specific code here to access
-    // a hardware timer or register that tracks the hardware uptime.
-    // This code will depend on your specific hardware architecture.
+std::vector<std::string> findRepeatedDnaSequences(std::string s) {
+    std::unordered_set<int> seen;
+    std::unordered_set<int> repeated;
+    std::vector<std::string> result;
+    int n = s.length();
     
-    // As an example, we'll simulate hardware uptime with a random number.
-    return (unsigned long long)rand() % 1000000; // Simulated uptime in seconds.
+    if (n <= 10) return result;
+    
+    // Mapping nucleotides to 2-bit values
+    std::unordered_map<char, int> charToBits = {{'A', 0}, {'C', 1}, {'G', 2}, {'T', 3}};
+    int bitmask = 0;
+    
+    // Initialize the bitmask for the first 10-letter sequence
+    for (int i = 0; i < 10; ++i) {
+        bitmask = (bitmask << 2) | charToBits[s[i]];
+    }
+    
+    seen.insert(bitmask);
+    
+    // Process the remaining sequences
+    for (int i = 10; i < n; ++i) {
+        // Slide the window: remove the leftmost 2 bits and add the new rightmost 2 bits
+        bitmask = ((bitmask << 2) & ((1 << 20) - 1)) | charToBits[s[i]];
+        
+        if (seen.find(bitmask) != seen.end()) {
+            // If the bitmask is found in the seen set and not yet added to the result
+            if (repeated.find(bitmask) == repeated.end()) {
+                result.push_back(s.substr(i - 9, 10));
+                repeated.insert(bitmask);
+            }
+        } else {
+            seen.insert(bitmask);
+        }
+    }
+    
+    return result;
 }
 
 int main() {
-    unsigned long long hardwareUptimeSeconds = getHardwareUptime();
-
-    // Convert the hardware uptime to days, hours, minutes, and seconds
-    unsigned long long uptime = hardwareUptimeSeconds;
-    unsigned long long days = uptime / (3600 * 24);
-    uptime %= (3600 * 24);
-    unsigned long long hours = uptime / 3600;
-    uptime %= 3600;
-    unsigned long long minutes = uptime / 60;
-    unsigned long long seconds = uptime % 60;
-
-    printf("Hardware uptime: %llu days, %llu hours, %llu minutes, %llu seconds\n",
-           days, hours, minutes, seconds);
-
+    std::string s = "ACGAATTCCGACGAATTCCG";
+    std::vector<std::string> result = findRepeatedDnaSequences(s);
+    
+    for (const std::string& seq : result) {
+        std::cout << seq << std::endl;
+    }
+    
     return 0;
 }

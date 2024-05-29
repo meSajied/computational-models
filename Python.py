@@ -1,20 +1,32 @@
-import math
+import psutil
 
+def is_process_interactive(pid):
+    try:
+        process = psutil.Process(pid)
+        # Check if the process has any open file descriptors pointing to a terminal
+        for fd in process.open_files() + process.connections():
+            if fd.fd == '0':  # Filter out localhost connections
+                return True
+        return False
+    except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+        return False
 
-def main():
-  testcase = int(input())
+# Replace 'process_name' with the name of your process
+process_name = "brave"  
 
-  while(testcase > 0):
-    N = int(input())
-    
-    sum = 0
-    for i in range(N):
-      val = input()
-      val = 
+for proc in psutil.process_iter(['pid', 'name']):
+    if process_name.lower() in proc.info['name'].lower():
+        pid = proc.info['pid']
+        if is_process_interactive(pid):
+            print(f"Process {process_name} with PID {pid} is interacting with a text interface.")
 
-      sum = sum + val
+# Example usage
+if __name__ == "__main__":
+    # Example process ID (replace with your actual process ID)
+    process_id = 2039
 
-    print(int(math.fabs(sum)))
-    i = i + 1
-
-main()
+    # Check if the process is prompting for input
+    if is_process_interactive(process_id):
+        print("Process is prompting for input.")
+    else:
+        print("Process is not prompting for input.")
