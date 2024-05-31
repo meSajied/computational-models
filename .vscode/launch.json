@@ -5,7 +5,7 @@
             "name": "(gdb) Launch", // Name of the configuration
             "type": "cppdbg", // Type of debugger
             "request": "launch", // Request type
-            "program": "${fileDirname}/build/${fileBasenameNoExtension}", // Path to the executable
+            "program": "${fileDirname}/build/exec", // Path to the executable
             "args": [], // Command line arguments for the program
             "stopAtEntry": false, // Do not stop at the entry point
             "cwd": "${fileDirname}", // Working directory

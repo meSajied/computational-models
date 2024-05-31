@@ -1,53 +1,80 @@
 #include <iostream>
 #include <vector>
-#include <unordered_set>
-#include <string>
+#include <numeric>
+using namespace std;
 
-std::vector<std::string> findRepeatedDnaSequences(std::string s) {
-    std::unordered_set<int> seen;
-    std::unordered_set<int> repeated;
-    std::vector<std::string> result;
-    int n = s.length();
+// Function to compute GCD of two numbers
+int compute_gcd(int x, int y) {
+    while (y != 0) {
+        int temp = y;
+        y = x % y;
+        x = temp;
+    }
+    return x;
+}
+
+// Function to compute prefix and suffix GCD arrays
+void prefix_suffix_gcd(const vector<int>& arr, vector<int>& prefix_gcd, vector<int>& suffix_gcd) {
+    int n = arr.size();
+    prefix_gcd[0] = 0;
+    suffix_gcd[n + 1] = 0;
     
-    if (n <= 10) return result;
-    
-    // Mapping nucleotides to 2-bit values
-    std::unordered_map<char, int> charToBits = {{'A', 0}, {'C', 1}, {'G', 2}, {'T', 3}};
-    int bitmask = 0;
-    
-    // Initialize the bitmask for the first 10-letter sequence
-    for (int i = 0; i < 10; ++i) {
-        bitmask = (bitmask << 2) | charToBits[s[i]];
+    for (int i = 1; i <= n; ++i) {
+        prefix_gcd[i] = compute_gcd(prefix_gcd[i - 1], arr[i - 1]);
     }
     
-    seen.insert(bitmask);
+    for (int i = n; i >= 1; --i) {
+        suffix_gcd[i] = compute_gcd(suffix_gcd[i + 1], arr[i - 1]);
+    }
+}
+
+// Function to count the number of strong indices
+int count_strong_indices(const vector<int>& arr) {
+    int n = arr.size();
+    vector<int> prefix_gcd(n + 1);
+    vector<int> suffix_gcd(n + 2);
     
-    // Process the remaining sequences
-    for (int i = 10; i < n; ++i) {
-        // Slide the window: remove the leftmost 2 bits and add the new rightmost 2 bits
-        bitmask = ((bitmask << 2) & ((1 << 20) - 1)) | charToBits[s[i]];
-        
-        if (seen.find(bitmask) != seen.end()) {
-            // If the bitmask is found in the seen set and not yet added to the result
-            if (repeated.find(bitmask) == repeated.end()) {
-                result.push_back(s.substr(i - 9, 10));
-                repeated.insert(bitmask);
-            }
+    prefix_suffix_gcd(arr, prefix_gcd, suffix_gcd);
+    int overall_gcd = prefix_gcd[n];
+    
+    int strong_indices_count = 0;
+    
+    for (int i = 1; i <= n; ++i) {
+        int gcd_excluding_i;
+        if (i == 1) {
+            gcd_excluding_i = suffix_gcd[2];
+        } else if (i == n) {
+            gcd_excluding_i = prefix_gcd[n - 1];
         } else {
-            seen.insert(bitmask);
+            gcd_excluding_i = compute_gcd(prefix_gcd[i - 1], suffix_gcd[i + 1]);
+        }
+        
+        if (gcd_excluding_i != overall_gcd) {
+            ++strong_indices_count;
         }
     }
     
-    return result;
+    return strong_indices_count;
 }
 
 int main() {
-    std::string s = "ACGAATTCCGACGAATTCCG";
-    std::vector<std::string> result = findRepeatedDnaSequences(s);
-    
-    for (const std::string& seq : result) {
-        std::cout << seq << std::endl;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int N;
+        cin >> N;
+        vector<int> A(N);
+        
+        for (int i = 0; i < N; ++i) {
+            cin >> A[i];
+        }
+        
+        cout << count_strong_indices(A) << '\n';
     }
-    
+
     return 0;
 }
