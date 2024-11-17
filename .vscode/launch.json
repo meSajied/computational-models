@@ -2,16 +2,23 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Launch", // Name of the configuration
-            "type": "cppdbg", // Type of debugger
-            "request": "launch", // Request type
-            "program": "${fileDirname}/build/exec", // Path to the executable
-            "args": [], // Command line arguments for the program
-            "stopAtEntry": false, // Do not stop at the entry point
-            "cwd": "${fileDirname}", // Working directory
-            "environment": [], // Environment variables
-            "externalConsole": false, // Do not use an external console
-            "MIMode": "gdb", // Debugger mode
+            "type": "java",
+            "name": "Java",
+            "request": "launch",
+            "mainClass": "Java",
+            "projectName": "computational-models_5a46c0bf"
+        },
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/build/exec",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",
@@ -19,14 +26,14 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "C/C++: g++ build active file", // Task to run before launch
-            "miDebuggerPath": "/usr/bin/gdb", // Path to the debugger
+            "preLaunchTask": "C/C++: g++ build active file",
+            "miDebuggerPath": "/usr/bin/gdb",
             "logging": {
-                "trace": true, // Trace logging
-                "traceResponse": true, // Trace responses
-                "engineLogging": true, // Engine logging
-                "programOutput": true, // Log program output
-                "exceptions": true // Log exceptions
+                "trace": true,
+                "traceResponse": true,
+                "engineLogging": true,
+                "programOutput": true,
+                "exceptions": true
             }
         }
     ]

@@ -8,6 +8,7 @@
       "args": [
         "-fdiagnostics-color=always",
         "-g",
+        "-DREAD_FILE",
         "${file}",
         "-o",
         "${fileDirname}/build/${fileBasenameNoExtension}"
@@ -28,6 +29,7 @@
       "args": [
         "-fdiagnostics-color=always",
         "-g",
+        "-DREAD_FILE",
         "${file}",
         "-o",
         "${fileDirname}/build/exec"
